@@ -1,6 +1,6 @@
 ---
 title: "Introduction to ggplot2"
-author: "Larry Hignight (https://github.com/Larry-Hignight/)"
+author: "Larry Hignight (https://github.com/Larry-Hignight/ggplot2)"
 output: ioslides_presentation
 ---
 
