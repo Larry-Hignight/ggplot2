@@ -4,7 +4,7 @@ author: "Larry Hignight (https://github.com/Larry-Hignight/ggplot2)"
 output: ioslides_presentation
 ---
 
-## The Layered Grammar of Graphics
+##
 
 ```“The simple graph has brought more information to the data analyst’s mind than any other device.”```
 
@@ -36,7 +36,7 @@ ggplot releases:
 
 If you're interested in the theoretical underpinnings of ggplot2:
 <p>
-[The Layered Grammar of Graphics](layered-grammar.pdf) by Hadley Wickham (2010).
+[The Layered Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.html) by Hadley Wickham (2010).
 
 + Contrasts the ggplot2 approach with the earlier approach by Wilkenson
 + Introduces the concept of layers
@@ -51,11 +51,11 @@ If you're interested in the theoretical underpinnings of ggplot2:
 
 ```{r, echo=FALSE, fig.width=8, fig.height=3}
 library(ggplot2)
-# ggplot(mpg, aes(fl, hwy)) + geom_violin() + geom_boxplot(alpha = .2)
 ggplot() +
-  geom_line(data = economics, aes(x = date, y = uempmed)) +
+  geom_line(data = economics, aes(x = date, y = unemploy)) +
   geom_rect(data = presidential[-1:-2, ],
-            aes(xmin = start, xmax = end, ymin = 3, ymax = 26, fill = party), alpha = .3)
+            aes(xmin = start, xmax = end, ymin = 0, ymax = 16000, fill = party), alpha = .3) +
+  labs(x = '', y = 'Number of unemployed in thousands')
 ```
 
 ## The Benefits of using a Grammar
@@ -173,7 +173,7 @@ Graphical primitives = "shapes".  Common uses:
 + Add horizontal and/or vertical lines
 + Add rectangles with background colors
 
-Notice the assignment to the variables which are used later.
+Notice the assignment to variables which are used later.
 
 ## Geoms: Graphical Primitives
 
@@ -350,9 +350,10 @@ Part 2 will cover:
 
 ```{r, echo=FALSE}
 ggplot() + 
-  geom_line(data = economics, aes(x = date, y = uempmed)) + 
-  geom_rect(data = presidential[-1:-2, ], 
-            aes(xmin = start, xmax = end, ymin = 3, ymax = 26, fill = party), alpha = .4)
+  geom_line(data = economics, aes(x = date, y = unemploy)) +
+  geom_rect(data = presidential[-1:-2, ],
+            aes(xmin = start, xmax = end, ymin = 0, ymax = 16000, fill = party), alpha = .3) +
+  labs(x = '', y = 'Number of unemployed in thousands')
 ```
 
 + Data Sets: economics and presidential
